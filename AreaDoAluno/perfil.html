@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGEST- Perfil</title>
+
+  <link rel="stylesheet" href="/sigest/css/perfil.css">
+</head>
+<body>
+    <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+        <a href="/sigest/AreaDoAluno/inicio.html">Início</a>
+        <a href="/sigest/AreaDoAluno/vagas.html">Vagas</a>
+        <a href="/sigest/AreaDoAluno/candidaturas.html">Cadidaturas</a>
+        <a href="/sigest/AreaDoAluno/relatorios.html">Relatórios</a>
+        <a href="/sigest/AreaDoAluno/meudesempenho.html">Meu desempenho</a>
+          <a href="/sigest/AreaDoAluno/documentos.html">Documentos</a>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main class="layout">
+    <!-- coluna esquerda: formulário + caixa cinza por trás -->
+    <aside class="left-column">
+      <div class="left-wrapper">
+        <div class="caixa-cinza"></div>
+
+        <form class="form-perfil" >
+          <label for="foto" class="foto-label">
+            <img src="/sigest/imagens/Silhueta minimalista em fundo verde.png" alt="foto" width="150">
+          </label>
+          <input type="file" id="foto" name="foto" style="display:none;">
+
+          <label>Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+
+          <label>Email:</label>
+          <input type="email" id="email" name="email" placeholder="Digite seu email institucional">
+
+          <label>Sobre você:</label>
+          <textarea id="sobrevoce" name="sobrevoce" rows="4" placeholder="Escreva sobre você..."></textarea>
+
+          <label>Anexe seu currículo</label>
+          <input type="file" name="curriculo">
+
+          <button type="submit">Salvar</button>
+          <button type="submit">Editar</button>
+        </form>
+      </div>
+    </aside>
+
+    <!-- coluna direita: painel verde com título e grid 2x2 -->
+    <section class="container-grande">
+      <h2 class="titulo">Seja bem-vindo(a) ao seu perfil!</h2>
+
+      <div class="grid-containers">
+        <div class="container-pequeno">
+          <div class="linhaverde"></div>
+          <div class="card-content">
+            <h3>Vantagens</h3>
+            <p>Acompanhe suas candidaturas e seu desempenho.</p>
+          </div>
+        </div>
+
+        <div class="container-pequeno">
+          <div class="linhaverde"></div>
+          <div class="card-content">
+            <h3>Oportunidades</h3>
+            <p>O SIGEST te conecta com as empresas e o mercado de trabalho.</p>
+          </div>
+        </div>
+
+        <div class="container-pequeno">
+          <div class="linhaverde"></div>
+          <div class="card-content">
+            <h3>Experiências</h3>
+            <p>Encontre a vaga perfeita para você.</p>
+          </div>
+        </div>
+
+        <div class="container-pequeno">
+          <div class="linhaverde"></div>
+          <div class="card-content">
+            <h3>Eficiência</h3>
+            <p>Tenha acesso a todas as informações que você precisa para realizar seu estágio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <script defer src="/sigest/JS/perfil.js"></script> 
+  
+</body>
+</html>
+  

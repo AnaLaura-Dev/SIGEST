@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gerenciamento de Estágios</title>
+  <link rel="stylesheet" href="/sigest/css/esqueceuasenha.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+        <a href="/sigest/documentos/Manual do usuário -SIGEST.pdf">Suporte</a>
+        <a href="/sigest/entrar como/entrar.html">Entrar</a>
+        <a href="/sigest/cadastro/cadastrarcomo.html">Cadastre-se</a>
+      </nav>
+    </div>
+  </header>
+   <div class="background-box"></div>
+  <div class="container">
+        <h2>Recuperar Senha</h2>
+        <form action="/sigest/php/redefinir_senha_send.php" method="POST">
+            <input type="email" name="email" placeholder="Digite seu e-mail" required>
+            <button type="submit" value="enviar">Enviar link</button>
+        </form>
+    </div>
+    </body>
+    </html>

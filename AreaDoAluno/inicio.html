@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gerenciamento de Estágios- Area do aluno</title>
+  <link rel="stylesheet" href="/sigest//css/inicioAreaDoAluno.css">
+  <script src="/sigest//JS/carrossel.js" defer></script>
+
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest//imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+               <a href="/sigest/documentos/Manual do usuário -SIGEST.pdf">Suporte</a>
+        <a href="/sigest/AreaDoAluno/vagas.html">Vagas</a>
+        <a href="/sigest/AreaDoAluno/candidaturas.html">Cadidaturas</a>
+        <a href="/sigest/AreaDoAluno/relatorios.html">Relatórios</a>
+        <a href="/sigest/AreaDoAluno/meudesempenho.html">Meu desempenho</a>
+        <a href="/sigest/AreaDoAluno/perfil.html">Perfil</a>
+        <a href="/sigest/AreaDoAluno/documentos.html">Documentos</a>
+        </a>
+      </div>
+    </nav>
+  </header>
+  
+   <section class="slider">
+    <div class="slider-content">
+
+      <input type="radio" name="btn-radio" id="radio1">
+      <input type="radio" name="btn-radio" id="radio2">
+      <input type="radio" name="btn-radio" id="radio3">
+      <input type="radio" name="btn-radio" id="radio4">
+
+      <div class="slide-box primeiro">
+        <img src="/sigest/imagens/carroselsobrenois.png">
+      </div>
+
+      <div class="slide-box ">
+        <img src="/sigest/imagens/img2carrossel.png">
+      </div>
+
+      <div class="slide-box ">
+        <img src="/sigest/imagens/carrosselsubstituiçao.png">
+      </div>
+
+      <div class="slide-box ">
+        <img src="/sigest/imagens/carrossel04.png">
+      </div>
+
+      <div class="nav-auto">
+        <div class="auto-btn1"></div>
+        <div class="auto-btn2"></div>
+        <div class="auto-btn3"></div>
+        <div class="auto-btn4"></div>
+      </div>
+
+      <div class = "nav-manual">
+        <label for = "radio1" class = "manual-btn"></label>
+        <label for = "radio2" class = "manual-btn"></label>
+        <label for = "radio3" class = "manual-btn"></label>
+        <label for = "radio4" class = "manual-btn"></label>
+      </div>
+    </div>
+  </section>
+  <h1>
+    <br>
+    Procurando por vagas?
+     <span class="verde" style="color: #1EC75C;" >SIGEST</span> é o lugar certo para você!
+  </h1>
+   
+
+<section class="vagas-recentes">
+  <h2>Vagas Recentes</h2>
+  <div id="vagas-recentes" class="vagas-recentes"></div>
+</section>
+<script>
+fetch("/sigest/php/listarVagasRecentes.php")
+  .then(res => res.json())
+  .then(vagas => {
+    const container = document.getElementById("vagas-recentes");
+    container.innerHTML = "";
+
+    if (vagas.length === 0) {
+      container.innerHTML = "<p>Nenhuma vaga recente disponível.</p>";
+      return;
+    }
+
+    vagas.forEach(vaga => {
+      const div = document.createElement("div");
+      div.classList.add("vaga-card");
+
+      div.innerHTML = `
+        <h3>${vaga.titulo}</h3>
+        <p><strong>Empresa:</strong> ${vaga.nomeEmpresa}</p>
+        <p><strong>Curso:</strong> ${vaga.curso}</p>
+        <p><strong>Turno:</strong> ${vaga.turno}</p>
+        <p>${vaga.descricao}</p>
+
+        <form action="/sigest/php/candidatarVaga.php" method="POST">
+          <input type="hidden" name="idVaga" value="${vaga.idVaga}">
+          <button type="submit">Candidatar-se</button>
+        </form>
+      `;
+
+      container.appendChild(div);
+    });
+  })
+  .catch(err => console.error("Erro ao carregar vagas recentes:", err));
+</script>
+
+</body>
+</html>

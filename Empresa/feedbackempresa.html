@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Status das Vagas</title>
+  <link rel="stylesheet" href="/sigest/css/feedbackempresa.css">
+</head>
+<body>
+    <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+        <a href="/sigest/Empresa/inicio.html">Início</a>
+        <a href="/sigest/Empresa/visualizarcandidaturas.html">Cadidaturas</a>
+         <a href="/sigest/Empresa/Estagiarios.html">Estagiários</a>
+       <a href="/sigest/Empresa/cadastrarvaga.html">Cadastrar Vagas</a>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <h2>Status das Suas Vagas</h2>
+
+  <table id="tabela-vagas">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Faz uma requisição para o PHP
+    fetch('/sigest/php/feedbackempresa.php')
+      .then(response => response.json())
+      .then(vagas => {
+        const tbody = document.querySelector('#tabela-vagas tbody');
+
+        vagas.forEach(vaga => {
+          const tr = document.createElement('tr');
+          const tdTitulo = document.createElement('td');
+          const tdStatus = document.createElement('td');
+
+          tdTitulo.textContent = vaga.titulo;
+          tdStatus.textContent = vaga.status;
+
+          tr.appendChild(tdTitulo);
+          tr.appendChild(tdStatus);
+          tbody.appendChild(tr);
+        });
+      })
+      .catch(error => console.error('Erro ao carregar vagas:', error));
+  </script>
+</body>
+</html>

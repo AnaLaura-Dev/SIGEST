@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento de Estágios- Empresa</title>
+  <link rel="stylesheet" href="/sigest/css/cadastrarvaga.css">
+  <head>
+ 
+    <body>
+        <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+        <a href="/sigest/Empresa/inicio.html">Início</a>
+        <a href="/sigest/Empresa/candidaturas.html">Cadidaturas</a>
+        <a href="/sigest/Empresa/Estagiarios.html">Estagiários</a>
+        <a href="/sigest/Empresa/feedbackempresa.html">Vagas Aprovadas</a>
+        </a>
+      </div>
+    </nav>
+  </header>
+    <main class="layout">
+         <aside class="left-column">
+      <div class="left-wrapper">
+        <div class="caixa-cinza"></div>
+      <form class="cadastrovaga" action="/sigest/php/cadastrarVaga.php" method="POST">
+      <h2>Cadastre uma vaga!</h2>
+      <br>
+      <label for="titulo">Título da vaga:</label>
+      <input type="text" id="titulo" name="titulo" placeholder="Digite o título da vaga">
+
+       <label for="curso">Curso:</label>
+      <select name="curso" id="curso">
+        <option value="">Selecione o curso</option>
+        <option value="Informática">Informática</option>
+        <option value="Química">Química</option>
+        <option value="Edificações">Edificações</option>
+        <option value="Mecânica">Mecânica</option>
+        <option value="Eletrotécnica">Eletrotécnica</option>
+        <option value="Mecatrônica">Mecatrônica</option>
+        <option value="Administração">Administração</option>
+        <option value="Agroecologia">Agroecologia</option>
+        <option value="Agropecuária">Agropecuária</option>
+        <option value="Paisagismo">Paisagismo</option>
+      </select>
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" name="descricao" rows="4" placeholder="Digite uma descrição para essa vaga"></textarea>
+      
+      <label for="turno">Turno</label>
+      <select name="turno" id="turno">
+        <option value="">Selecione o turno</option>
+        <option value="matutino">Matutino</option>
+        <option value="vespertino">Vespertino</option>
+      </select>
+
+      <label for="quantidade">Quantidade de estagiário</label>
+      <input type="number" id="quantidade" name="quantidade" placeholder="Escolha a quantidade de estagiários">
+
+      <label for="instituicao">Para onde esta vaga é direcionada?</label>
+      <select id="idInstituicao" name="idInstituicao" >
+        <option value="">Selecione a instituição </option>
+        <option value="1">IFAM CAMPUS MANAUS CENTRO</option>
+        <option value="2">IFAM CAMPUS MANAUS DISTRITO INDUSTRIAL</option>
+        <option value="3">IFAM CAMPUS MANAUS ZONA LESTE</option>
+      </select>
+        <button type="submit">Enviar vaga</button>
+      </form> 
+    </div>
+    </div>
+  </aside>
+  </main>
+  
+    </body>
+ </html>

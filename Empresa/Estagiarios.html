@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estagiários | SIGEST</title>
+    <link rel="stylesheet" href="/sigest/css/estagiarios.css">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <img src="/sigest/imagens/logosigest.gif">
+        </div>
+        <div class="menu">
+            <a href="/sigest/Empresa/inicio.html">Início</a>
+            <a href="/sigest/Empresa/cadastrarvaga.html">Cadastrar Vagas</a>
+            <a href="/sigest/Empresa/Estagiarios.html">Estagiários</a>
+            <a href="/sigest/Empresa/candidaturas.html">Candidaturas</a>
+        </div>
+    </nav>
+</header>
+
+<h1>Estagiários Vinculados</h1>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Aluno</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Curso</th>
+            <th>Instituição</th>
+            <th>Vaga</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody id="tabelaEstagiarios"></tbody>
+</table>
+<script>
+
+function carregarEstagiarios() {
+    fetch("/sigest/php/listarEstagiariosEmpresa.php", {
+        method: "GET",
+        credentials: "include"
+    })
+    .then(r => r.json())
+    .then(estagiarios => {
+        console.log(estagiarios);
+
+        const tabela = document.getElementById("tabelaEstagiarios");
+        tabela.innerHTML = "";
+
+        if (!Array.isArray(estagiarios) || estagiarios.length === 0) {
+            tabela.innerHTML = `
+                <tr>
+                    <td colspan="7" style="text-align:center; padding: 15px;">
+                        Nenhum estagiário encontrado.
+                    </td>
+                </tr>`;
+            return;
+        }
+
+        estagiarios.forEach(est => {
+
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+                <td>${est.nomeAluno ?? "Não informado"}</td>
+                <td>${est.emailAluno ?? "Não informado"}</td>
+                <td>${est.celularAluno ?? "Não informado"}</td>
+                <td>${est.cursoAluno ?? "Não informado"}</td>
+                 <td>${est.nomeInstituicao ?? "Não informado"}</td>
+                <td>${est.tituloVaga ?? "Sem título"}</td>
+                <td><button class="btnAvaliar">Avaliar</button></td>
+            `;
+
+        tr.querySelector(".btnAvaliar").addEventListener("click", () => {
+
+    console.log("== Salvando dados no sessionStorage ==");
+
+    sessionStorage.setItem("idAlunoAvaliado", est.idAluno);
+    sessionStorage.setItem("idInstituicaoAvaliada", est.nomeInstituicao);
+    sessionStorage.setItem("idEmpresaLogada", est.idEmpresa);
+
+    //  nome vem como est.nome
+    sessionStorage.setItem("nomeAlunoAvaliado", est.nome || est.nomeAluno);
+
+    console.log("idAluno:", est.idAluno);
+    console.log("idInstituicao:", est.idInstituicao);
+    console.log("idEmpresa:", est.idEmpresa);
+    console.log("nomeAluno (corrigido):", est.nome || est.nomeAluno);
+
+    window.location.href = "/sigest/Empresa/adicionardesempenho.html";
+});
+            tabela.appendChild(tr);
+        });
+    })
+    .catch(err => {
+        console.error("Erro ao carregar estagiários:", err);
+    });
+}
+
+carregarEstagiarios();
+
+</script>
+
+</body>
+</html>

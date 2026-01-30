@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGEST - Desempenho</title>
+  <link rel="stylesheet" href="/sigest/css/desempenho.css">
+</head>
+
+<body>
+
+<header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+        <a href="/sigest/Inicio/index.html">Início</a>
+        <a href="/sigest/Empresa/cadastrarvaga.html">Cadastrar Vagas</a>
+        <a href="/sigest/Empresa/Estagiarios.html">Estagiários</a>
+      </div>
+    </nav>
+</header>
+
+<h1 style="text-align: center; color:#333">
+    Adicionar <span style="color:#1EC75C">Desempenho</span> do Estagiário
+</h1>
+
+<h2>Aluno avaliado: <span id="nomeAluno"></span></h2>
+
+
+<form id="formAvaliacao" class="formAvaliacao">
+
+    <h3>Como você avalia o conhecimento teórico do estagiário?</h3>
+    <label><input type="checkbox" name="teorico" value="Bom"> Bom</label><br>
+    <label><input type="checkbox" name="teorico" value="Regular"> Regular</label><br>
+    <label><input type="checkbox" name="teorico" value="Ótimo"> Ótimo</label><br><br>
+
+    <h3>Sugestões para melhorar o desempenho:</h3>
+    <textarea id="comentario_sugestao" rows="4" placeholder="Comentário..."></textarea>
+
+    <h3>Atividades realizadas:</h3>
+    <textarea id="comentario_atividades" rows="4" placeholder="Comentário..."></textarea>
+
+    <!-- TÓPICOS DE DESEMPENHO -->
+    <div class="topico"><h3>Relacionamento Interpessoal</h3><div class="estrelas" data-topico="Relacionamento"></div></div>
+    <div class="topico"><h3>Responsabilidade</h3><div class="estrelas" data-topico="Responsabilidade"></div></div>
+    <div class="topico"><h3>Pontualidade</h3><div class="estrelas" data-topico="Pontualidade"></div></div>
+    <div class="topico"><h3>Iniciativa / Criatividade</h3><div class="estrelas" data-topico="Iniciativa"></div></div>
+    <div class="topico"><h3>Evolução do Aprendizado</h3><div class="estrelas" data-topico="Evolução"></div></div>
+    <div class="topico"><h3>Organização</h3><div class="estrelas" data-topico="Organização"></div></div>
+
+    <textarea id="comentario_geral" rows="4" placeholder="Comentário adicional..."></textarea><br>
+    <button type="button" id="btnEnviar">Enviar Avaliação</button>
+</form>
+<script src="/sigest/JS/desempenho.js"></script>
+</body>
+</html>

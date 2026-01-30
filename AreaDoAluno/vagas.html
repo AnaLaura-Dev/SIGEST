@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Vagas Disponíveis</title>
+  <link rel="stylesheet" href="/sigest/css/vagas.css">
+</head>
+<body>
+  <header>
+     <nav>
+      <div class="logo">
+        <img src="/sigest//imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+       <a href="/sigest/AreaDoAluno/inicio.html">Início</a>
+        <a href="/sigest/AreaDoAluno/candidaturas.html">Cadidaturas</a>
+        <a href="/sigest/AreaDoAluno/relatorios.html">Relatórios</a>
+        <a href="/sigest/AreaDoAluno/meudesempenho.html">Meu desempenho</a>
+        <a href="/sigest/AreaDoAluno/perfil.html">Perfil</a>
+        <a href="/sigest/AreaDoAluno/documentos.html">Documentos</a>
+        </a>
+      </div>
+    </nav>
+  </header>
+      <h1>Vagas de Estágio Disponíveis</h1>
+      <label for="filtroCurso">Filtrar por curso:</label>
+<select id="filtroCurso">
+    <option value="">Selecione o curso</option>
+        <option value="Informática">Informática</option>
+        <option value="Química">Química</option>
+        <option value="Edificações">Edificações</option>
+        <option value="Mecânica">Mecânica</option>
+        <option value="Eletrotécnica">Eletrotécnica</option>
+        <option value="Mecatrônica">Mecatrônica</option>
+        <option value="Administração">Administração</option>
+        <option value="Agroecologia">Agroecologia</option>
+        <option value="Agropecuária">Agropecuária</option>
+        <option value="Paisagismo">Paisagismo</option>
+</select>
+  <main id="lista-vagas" class="vagas-container">
+    <p>Carregando vagas...</p>
+  </main>
+
+  <script>
+
+fetch("/sigest/php/listarVagasAprovadas.php")
+  .then(res => res.json())
+  .then(vagas => {
+    const container = document.getElementById("lista-vagas");
+    container.innerHTML = "";
+
+    if (vagas.length === 0) {
+      container.innerHTML = "<p>Nenhuma vaga disponível no momento.</p>";
+      return;
+    }
+
+    vagas.forEach(vaga => {
+      const div = document.createElement("div");
+      div.classList.add("vaga-card");
+      div.innerHTML = `
+        <h3>${vaga.titulo}</h3>
+         <p><strong>Empresa:</strong> ${vaga.nomeEmpresa ?? vaga.nome_empresa ?? vaga.empresa ?? 'Não informado'}</p>
+        <p><strong>Curso:</strong> ${vaga.curso}</p>
+        <p><strong>Turno:</strong> ${vaga.turno}</p>
+        <p>${vaga.descricao}</p>
+        <form action="/sigest/php/candidatarVaga.php" method="POST">
+          <input type="hidden" name="idVaga" value="${vaga.idVaga}">
+          <button type="submit">Candidatar-se</button>
+        </form>
+      `;
+      container.appendChild(div);
+    });
+  })
+  .catch(err => {
+    document.getElementById("lista-vagas").innerHTML =
+      "<p>Erro ao carregar vagas.</p>";
+    console.error(err);
+  });
+
+const filtro = document.getElementById('filtroCurso');
+
+filtro.addEventListener('change', () => {
+  const cursoSelecionado = filtro.value;
+
+  fetch('/sigest/php/filtrarVagas.php?curso=' + cursoSelecionado)
+    .then(res => res.json())
+    .then(vagas => {
+      const container = document.getElementById("lista-vagas");
+      container.innerHTML = "";
+
+      if (vagas.length === 0) {
+        container.innerHTML = "<p>Nenhuma vaga encontrada.</p>";
+        return;
+      }
+
+      vagas.forEach(vaga => {
+        const div = document.createElement("div");
+        div.classList.add("vaga-card"); 
+        div.innerHTML = `
+          <h3>${vaga.titulo}</h3>
+  <p><strong>Empresa:</strong> ${vaga.nomeEmpresa ?? vaga.nome_empresa ?? vaga.empresa ?? 'Não informado'}</p>
+          <p><strong>Curso:</strong> ${vaga.curso}</p>
+          <p><strong>Turno:</strong> ${vaga.turno}</p>
+          <p>${vaga.descricao}</p>
+          <form action="/sigest/php/candidatarVaga.php" method="POST">
+            <input type="hidden" name="idVaga" value="${vaga.idVaga}">
+            <button type="submit">Candidatar-se</button>
+          </form>
+        `;
+        container.appendChild(div);
+      });
+    })
+    .catch(err => console.error(err));
+});
+
+
+  </script>
+</body>
+</html>

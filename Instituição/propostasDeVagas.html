@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento de Estágios- Intituição</title>
+  <link rel="stylesheet" href="/sigest/css/propostadevaga.css">
+  <head>
+ 
+    <body>
+        <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+        <a href="/sigest/Instituição/inicio.html">Inicio</a>
+        <a href="/sigest/Instituição/Validarestagio.html">Validar Estágio</a>
+       <a href="/sigest/Instituição/desempenhoalunos.html">Desempenhos</a>
+        <a href="/sigest/Instituição/relatorioAlunos.html">Relatórios</a>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <h2>Vagas Pendentes</h2>
+  <div id="lista-vagas"></div>
+  <script>
+    // procura vagas via PHP api (garçom)
+    fetch('/sigest/php/listarVagasPendentes.php')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('lista-vagas').innerHTML = data;
+      });
+  </script>
+    </body>
+    </html

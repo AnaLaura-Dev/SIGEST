@@ -1,0 +1,21 @@
+.wrapper-senha {
+  position: relative;
+  width: 100%;
+}
+
+.wrapper-senha input {
+  width: 100%;
+  padding: 12px;
+  padding-right: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.wrapper-senha .toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+}

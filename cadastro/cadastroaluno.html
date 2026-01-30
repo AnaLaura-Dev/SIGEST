@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGEST- Cadastro</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="/sigest/JS/senha.js"></script>
+<link rel="stylesheet" href="/sigest/css/senha.css">
+  <link rel="stylesheet" href="/sigest/css/cadastroaluno.css">
+</head>
+
+<body>
+  <!--animação de fundo-->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif" alt="Logo SIGEST">
+      </div>
+      <div class="menu">
+        <a href="/sigest/inicio/index.html">Início</a>
+        <a href="/sigest/sobre/sobrenos.html">Sobre nós</a>
+        <a href="#">Suporte</a>
+        <a href="/sigest/entrar como/">Login</a>
+      </div>
+    </nav>
+  </header>
+  <div class="login-box">
+    <form action="/sigest/php/cadastroAluno.php" method="POST">
+      <h2><b>Cadastre-se</b></h2>
+      <label for="nome" style="color: #333;"><b>Nome</b></label><input type="text" id="nome" name="nome"
+        placeholder="Digite seu Nome completo" required autofocus>
+      <label for="cpf" style="color: #333;"><b>CPF</b></label> <input type="text" id="CPF" name="CPF" placeholder="Ex: XXXXXXXXX-XX">
+      <label for="celu" style="color: #333;"><b>Celular</b></label><input type="tel" id="celular" name="celular" placeholder="Ex: XXXXXXX-XXXX">
+      <label for="CEP" style="color: #333;"><b>CEP</b></label> <input type="text" id="CEP" name="CEP" placeholder="Ex: XXXXX-XXX">
+      <label for="ender" style="color: #333;"><b>Endereço</b></label> <input type="text"  id="endereco" name="endereco"
+        placeholder="Ex: Rua N°, bairro">
+      <label for="curso" style="color: #333;"><b>Curso</b></label><input type="text" id="curso" name="curso"
+        placeholder="Ex: Informática">
+      <label for="email" style="color: #333;"><b>Email</b></label> <input type="email" id="email" name="email"
+        placeholder="Ex: XXXXXXXXXX@ifam.edu.br">
+      <label for="senha" style="color: #333;"><b>Senha</b></label>
+<div class="wrapper-senha">
+  <input type="password" id="senha" name="senha" placeholder="Senha deve conter pelo menos 8 caracteres" required>
+  <i class="fa-solid fa-eye toggle"></i>
+</div>
+      <button style="width: 250px; height: 40px; margin-left: 50px;">Entrar</button>
+      <p>Esqueceu a senha?</p>
+      <p>Já possui conta? <a href="/sigest/login/loginaluno.html"><span class="verde">Acessar</span></a></p>
+    </form>
+  </div>
+</body>
+
+</html>

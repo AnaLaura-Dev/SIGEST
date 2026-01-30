@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 1;
+  cursor: default;
+}
+
+header {
+  background-color: #D9D9D9;
+  padding: 0 20px;
+  height: 80px;
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
+}
+
+nav a {
+  color: rgb(53, 48, 48);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+nav a:hover {
+padding: auto;
+  background-color: #1ec75c3d;
+   border-radius: 8px;
+   cursor: pointer;
+
+}
+h1 {
+  text-align: left;
+  color: #333333;
+  font-size: 40px;
+  line-height: 1.6;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.logo img {
+  display: flex;
+  height: 80px;
+  margin: 1;
+  padding: 0;
+  display: block;
+}
+
+.logo img {
+  display: flex;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+
+h2 {
+  text-align: left;
+  font-family: Arial, sans-serif;
+  color: #333333;
+  font-size: 30px;
+  line-height: 1.6;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+
+.imagem img {
+  position: absolute;
+  top: 40px;
+  right: 100px;
+  width: 420px;
+  height: auto;
+}
+
+
+.recado{
+  text-align: left;
+  color: #333333;
+  font-size: 40px;
+  line-height: 1.6;
+  margin-left: 10px;
+  margin-top: -920px;
+}
+
+section.slider{
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.slider-content {
+  width: 400%;
+  height: auto;
+  display: flex;
+}
+
+.slider-content input {
+  display: none;
+}
+
+
+.slide-box {
+  width: 25%;
+  height: auto;
+  position: relative;
+  text-align: center;
+  transition: 1s;
+}
+.slide-box img{
+   background-size: cover;
+  background-position: center;
+  width: 100%;
+   height: 100vh;
+}
+
+.nav-manual, .nav-auto{
+  position: absolute;
+  width: 100%;
+  margin-top: 50%;
+  display: flex;
+  justify-content: center;
+}
+.nav-manual .manual-btn, .nav-auto div{
+  border: 1px solid #1EC75C;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
+  margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover{
+  background-color: #1EC75C;
+}
+
+#radio1:checked ~ .nav-auto .auto-btn1{
+  background-color: #1EC75C;
+}
+#radio2:checked ~ .nav-auto .auto-btn2{
+  background-color: #1EC75C;
+}
+#radio3:checked ~ .nav-auto .auto-btn3{
+  background-color: #1EC75C;
+}
+#radio4:checked ~ .nav-auto .auto-btn4{
+  background-color: #1EC75C;
+}
+
+#radio1:checked ~ .primeiro{
+  margin-left: 0%;
+}
+
+#radio2:checked ~ .primeiro{
+  margin-left: -25%;
+}
+
+#radio3:checked ~ .primeiro{
+  margin-left: -50%;
+}
+
+#radio4:checked ~ .primeiro{
+  margin-left: -75%;
+}
+
+
+.vagas-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  border-color: solid#1EC75C;
+}
+
+.vaga-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.2s;
+   border-color: #1EC75C;
+}
+
+.vaga-card:hover {
+  transform: scale(1.02);
+}
+
+.vaga-card h3 {
+  color: #1ec75c;
+  margin-top: 0;
+}
+
+button {
+  background-color: #D9D9D9;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+      color: white;
+  background-color: #1EC75C;
+}

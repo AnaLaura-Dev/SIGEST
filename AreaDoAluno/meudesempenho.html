@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGEST- Perfil</title>
+
+  <link rel="stylesheet" href="/sigest/css/relatorios.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+           <a href="/sigest/AreaDoAluno/inicio.html">Início</a>
+        <a href="/sigest/AreaDoAluno/vagas.html">Vagas</a>
+        <a href="/sigest/AreaDoAluno/candidaturas.html">Cadidaturas</a>
+        <a href="/sigest/AreaDoAluno/documentos.html">Documentos</a>
+            <a href="/sigest/AreaDoAluno/perfil.html">Perfil</a>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <body>
+  <h1 style="color: #1EC75C; text-align: center">Visualize seu desempenho</h1>
+
+  <div id="conteudo"></div>
+<script>
+fetch("/sigest/php/listarDesempenhoAluno.php")
+    .then(res => res.json())
+    .then(dados => {
+
+        const div = document.getElementById("conteudo");
+
+        // Se houver erro, mostrar mensagem
+        if (dados.status !== "ok") {
+            div.innerHTML = `<p>${dados.mensagem}</p>`;
+            return;
+        }
+
+        const avaliacoes = dados.avaliacoes;
+
+        if (!avaliacoes.length) {
+            div.innerHTML = "<p>Você ainda não possui avaliações.</p>";
+            return;
+        }
+
+        // Mostrar avaliações
+        avaliacoes.forEach(av => {
+            div.innerHTML += `
+                <h3>Empresa: ${av.nomeEmpresa}</h3>
+                <p><strong>Data:</strong> ${av.dataAvaliacao}</p>
+
+                <h4>Comentários gerais</h4>
+                <p><strong>Atividades:</strong> ${av.comentarioAtividades || "Sem comentário"}</p>
+                <p><strong>Sugestões:</strong> ${av.comentarioSugestao || "Sem comentário"}</p>
+                <p><strong>Geral:</strong> ${av.comentarioGeral || "Sem comentário"}</p>
+
+                <h4>Notas por Tópico</h4>
+                <ul>
+                ${av.topicos.map(t => `
+                    <li>
+                        <strong>${t.nomeTopico}</strong>: Nota ${t.nota}<br>
+                        <em>${t.comentario || "Sem comentário"}</em>
+                    </li>
+                `).join("")}
+                </ul>
+
+                <hr>
+            `;
+        });
+    })
+    .catch(err => {
+        console.error("Erro ao carregar desempenho:", err);
+        document.getElementById("conteudo").innerHTML =
+            "<p>Erro ao carregar seus dados.</p>";
+    });
+</script>
+
+
+  </body> 
+</html>
+
+ 

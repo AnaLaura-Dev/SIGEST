@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGEST- Perfil</title>
+
+  <link rel="stylesheet" href="/sigest/css/relatorios.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+          <a href="/sigest/AreaDoAluno/inicio.html">Início</a>
+        <a href="/sigest/AreaDoAluno/vagas.html">Vagas</a>
+        <a href="/sigest/AreaDoAluno/candidaturas.html">Cadidaturas</a>
+        <a href="/sigest/AreaDoAluno/meudesempenho.html">Meu desempenho</a>
+        <a href="/sigest/AreaDoAluno/documentos.html">Documentos</a>
+            <a href="/sigest/AreaDoAluno/perfil.html">Perfil</a>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <h1>Envie seus relatórios aqui!</h1>
+
+    <div class="documentos">
+    <a href="/sigest/documentos/MODELO - Relatório Parcial01.pdf" download="Relatório_Parcial01.pdf" class="btn-download">
+<i class="fa-solid fa-file" style="color: #353030;"></i> Relatório Parcial 1
+    </a>
+
+    <a href="/sigest/documentos/MODELO - Relatório Parcial 02.pdf" download="Relatório_Parcial02" class="btn-download">
+     <i class="fa-solid fa-file" style="color: #353030;"></i> Relatório Parcial 2
+    </a>
+
+      <a href="/sigest/documentos/MODELO - Relatório Parcial 03.pdf" download="Termo_Ciencia_Orientador.pdf" class="btn-download">
+     <i class="fa-solid fa-file" style="color: #353030;"></i> Relatório Parcial 3
+    </a>
+  </div>   
+  <hr>
+
+<h2>Enviar Relatório</h2>
+<section class="enviar-relatorios">
+<form action="/sigest/php/enviarRelatorio.php" method="POST" enctype="multipart/form-data" class="relatorios">
+
+    <label>Nome do Aluno:</label><br>
+    <input type="text" name="nome" required><br><br>
+
+    <label>Matrícula:</label><br>
+    <input type="text" name="matricula" required><br><br>
+
+    <label>Curso:</label><br>
+    <select name="curso" required>
+        <option value="">Selecione...</option>
+     <option value="Informática">Informática</option>
+        <option value="Química">Química</option>
+        <option value="Edificações">Edificações</option>
+        <option value="Mecânica">Mecânica</option>
+        <option value="Eletrotécnica">Eletrotécnica</option>
+        <option value="Mecatrônica">Mecatrônica</option>
+        <option value="Administração">Administração</option>
+        <option value="Agroecologia">Agroecologia</option>
+        <option value="Agropecuária">Agropecuária</option>
+        <option value="Paisagismo">Paisagismo</option>
+    </select><br><br>
+
+    <label>Instituição que você estuda</label><br>
+    <select name="destino" required>
+       <option value="">Selecione...</option>
+        <option value="1">IFAM CAMPUS MANAUS CENTRO</option>
+        <option value="2">IFAM CAMPUS MANAUS DISTRITO INDUSTRIAL</option>
+        <option value="3">IFAM CAMPUS MANAUS ZONA LESTE</option>
+    </select><br><br>
+
+    <label>Qual relatório está enviando?</label><br>
+    <select name="tipo" required>
+       <option value="">Selecione...</option>
+        <option value="1">Relatório 1</option>
+        <option value="2">Relatório 2</option>
+        <option value="3">Relatório 3</option>
+    </select><br><br>
+
+    <label>Anexar arquivo (PDF):</label><br>
+    <input type="file" name="arquivo" accept="application/pdf" required><br><br>
+
+    <button type="submit">Enviar Relatório</button><br>
+</form>
+  </section>
+<hr>
+
+<h2>Status dos Relatórios Enviados</h2>
+
+<table border="1" width="100%">
+    <thead>
+        <tr>
+            <th>Relatório</th>
+            <th>Data de Envio</th>
+            <th>Status</th>
+            <th>Arquivo</th>
+        </tr>
+    </thead>
+    <tbody id="tabela-relatorios">
+    </tbody>
+</table>
+
+<script>
+   
+    fetch("/sigest/php/listarRelatorios.php")
+        .then(res => res.json())
+        .then(lista => {
+            const tabela = document.getElementById("tabela-relatorios");
+
+            if (lista.length === 0) {
+                tabela.innerHTML = "<tr><td colspan='4'>Nenhum relatório enviado ainda.</td></tr>";
+                return;
+            }
+
+          lista.forEach(rel => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+        <td>${rel.tipo}</td>
+        <td>${rel.dataEnvio}</td>
+        <td>${rel.status}</td>
+        <td><a href="/sigest/uploads/${rel.caminhoArquivo}" target="_blank">Abrir</a></td>
+    `;
+
+    tabela.appendChild(tr);
+});
+        });
+</script>
+
+</body>
+</html>

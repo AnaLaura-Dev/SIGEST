@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+ font-family: Arial, sans-serif;
+  height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  position: relative;
+  z-index: 1;
+ 
+}
+header {
+  background-color: #D9D9D9;
+  padding: 0 20px;
+  height: 80px;
+  width: 100%;
+   overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.menu {
+ display: flex;
+  gap: 20px;
+}
+
+nav a { 
+  gap: 1px;
+  margin-right: 40px;
+  color: rgb(53, 48, 48);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+padding: auto;
+  background-color: #1ec75c3d;
+   border-radius: 8px;
+   cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.logo img {
+  display: flex;
+  height: 80px;
+  margin: 1;
+  padding: 0;
+  display: block;
+}
+
+.logo img {
+  display: flex;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.layout {
+  max-width:1200px;
+  margin-top: 20%;
+  display: grid;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.left-wrapper { position: relative; }
+
+.caixa-cinza {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 110%;
+  height: 100%;
+  background: #ccc;
+  border-radius: 10px;
+  z-index: 0; /* fica atrás do formulário (form tem z-index:1) */
+  box-shadow: 0 6px 18px #726f6f;
+}
+
+.cadastrovaga {
+  position: relative;
+  z-index: 1; /* fica acima da caixa cinza */
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.cadastrovaga h2{
+    margin-bottom: -20px;
+    text-align: center;
+    font-size: 30px;
+    color: #333;
+}
+
+.cadastrovaga label { font-weight: bold; color: #333; }
+.cadastrovaga input[type="text"],
+.cadastrovaga input[type="number"],
+.cadastrovaga  select,
+.cadastrovaga textarea {
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  height: 300%;
+}
+
+
+button{
+   margin-top: 6px;
+  padding: 12px;
+  background: #1EC75C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+ 
+}

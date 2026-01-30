@@ -1,0 +1,24 @@
+.wrapper-senha {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+/* O input */
+.wrapper-senha input {
+  width: 100%;
+  padding: 12px 40px 12px 12px; /* espaço para o ícone */
+  box-sizing: border-box;
+}
+
+/* O ícone */
+.wrapper-senha .toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+  font-size: 18px;
+  user-select: none;
+}

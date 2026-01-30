@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gerenciamento de Estágios- Area da Instituição</title>
+  <link rel="stylesheet" href="/sigest/css/validarestagio.css">
+
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/sigest/imagens/logosigest.gif">
+      </div>
+      <div class="menu">
+        <a href="/sigest/Instituição/inicio.html">Inicio</a>
+        <a href="/sigest/Instituição/desempenhoalunos.html">Desempenho</a>
+        <a href="/sigest/Instituição/propostasDeVagas.html">Proposta de vaga</a>
+        <a href="/sigest/Instituição/relatorioAlunos.html">Relatórios</a>
+      </div>
+    </nav>
+  </header>
+
+  <body>
+    <h1>Documentos Enviados pelos Alunos</h1>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Aluno</th>
+          <th>Matrícula</th>
+          <th>Tipo</th>
+          <th>Arquivo</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaDocs"></tbody>
+    </table>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        carregarDocumentos();
+      });
+
+      function carregarDocumentos() {
+
+        const tabela = document.querySelector("#tabelaDocs");
+
+        fetch("/sigest/php/listarDocumentosInstituicao.php")
+          .then(response => response.json())
+          .then(documentos => {
+
+            tabela.innerHTML = "";
+
+            if (!Array.isArray(documentos) || documentos.length === 0) {
+              tabela.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align:center; padding: 15px;">
+                            Nenhum documento enviado pelos alunos ainda.
+                        </td>
+                    </tr>
+                `;
+              return;
+            }
+
+            documentos.forEach(doc => {
+
+              const tr = document.createElement("tr");
+
+              tr.innerHTML = `
+                    <td>${doc.nomeAluno}</td>
+                    <td>${doc.matriculaAluno ?? "Sem matrícula"}</td>
+                    <td>${doc.tipoDoc}</td>
+                    <td>
+                        <a href="/sigest/${doc.arquivo}" target="_blank">
+                            Abrir arquivo
+                        </a>
+                    </td>
+                    <td>${doc.status}</td>
+                    <td>
+                        <button onclick="validar(${doc.idDocumento})">Validar</button>
+                        <button onclick="recusar(${doc.idDocumento})">Recusar</button>
+                    </td>
+                `;
+
+              tabela.appendChild(tr);
+            });
+          })
+          .catch(error => {
+            console.error("Erro ao carregar documentos:", error);
+            tabela.innerHTML = `
+                <tr>
+                    <td colspan="6" style="text-align:center; color:red;">
+                        Erro ao carregar documentos.
+                    </td>
+                </tr>
+            `;
+          });
+      }
+
+      function validar(idDocumento) {
+    atualizarStatus(idDocumento, "validado");
+}
+
+function recusar(idDocumento) {
+    atualizarStatus(idDocumento, "recusado");
+}
+
+function atualizarStatus(idDocumento, status) {
+    fetch("/sigest/php/atualizarStatusDocumento.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ idDocumento, status })
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.sucesso) {
+            alert("Status atualizado com sucesso!");
+            carregarDocumentos(); // atualiza a tabela automaticamente
+        } else {
+            alert("Erro: " + result.erro);
+        }
+    })
+    .catch(error => {
+        console.error("Erro ao atualizar status:", error);
+        alert("Erro ao tentar atualizar.");
+    });
+}
+
+    </script>
+  </body>
+
+</html>
