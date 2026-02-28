@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
   async function carregar() {
     container.innerHTML = "<p>Carregando candidaturas...</p>";
     try {
-      const res = await fetch('/sigest/php/listarCandidaturas.php'); // faz requisiçaõ
+      const res = await fetch('php/listarCandidaturas.php'); // faz requisiçaõ
       if (!res.ok) throw new Error("Falha ao buscar candidaturas");
       const dados = await res.json();
       renderLista(dados);
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
 
  card.querySelector('.btn-ver').addEventListener('click', (e) => {
   const idAluno = e.currentTarget.dataset.aluno;
-  window.location.href = `/sigest/php/verPerfilAluno.php?idAluno=${idAluno}`;
+  window.location.href = `php/verPerfilAluno.php?idAluno=${idAluno}`;
 });
 
     
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
   // ver perfil completo do alunno
   async function abrirPerfil(idAluno) {
     try {
-      const res = await fetch(`/sigest/php/verPerfilAluno.php?idAluno=${encodeURIComponent(idAluno)}`);
+      const res = await fetch(`php/verPerfilAluno.php?idAluno=${encodeURIComponent(idAluno)}`);
       if (!res.ok) throw new Error("Erro ao buscar perfil");
       const perfil = await res.json();
 
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
       const form = new URLSearchParams();
       form.append('idCandidatura', idCandidatura);  // pega dados como formulario
 
-      const res = await fetch('/sigest/php/aceitarCandidatura.php', {
+      const res = await fetch('php/aceitarCandidatura.php', {
         method: 'POST',
         body: form
       });
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
       const form = new URLSearchParams();
       form.append('idCandidatura', idCandidatura);
 
-      const res = await fetch('/sigest/php/recusarCandidatura.php', {
+      const res = await fetch('php/recusarCandidatura.php', {
         method: 'POST',
         body: form
       });

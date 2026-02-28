@@ -3,7 +3,7 @@ session_start();
 require_once "conexao.php";
 
 if (!isset($_SESSION['idEmpresa'])) {
-    echo "<script>alert('Faça login como empresa para cadastrar vagas.'); window.location.href = '/sigest/login/loginempresa.html';</script>";
+    echo "<script>alert('Faça login como empresa para cadastrar vagas.'); window.location.href = 'login/loginempresa.html';</script>";
     exit;
 }
 
@@ -55,7 +55,7 @@ $stmt->bind_param(
 if ($stmt->execute()) {
     echo "<script>
         alert('Vaga cadastrada e enviada para a instituição com sucesso!');
-        window.location.href = '/sigest/Empresa/cadastrarvaga.html';
+        window.location.href = 'Empresa/cadastrarvaga.html';
     </script>";
 } else {
     echo "Erro ao cadastrar vaga: " . $stmt->error;

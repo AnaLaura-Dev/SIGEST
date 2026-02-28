@@ -5,20 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gerenciamento de Estágios- Intituição</title>
-  <link rel="stylesheet" href="/sigest/css/relatorioAlunos.css">
+  <link rel="stylesheet" href="css/relatorioAlunos.css">
 </head>
  
     <body>
         <header>
     <nav>
       <div class="logo">
-        <img src="/sigest/imagens/logosigest.gif">
+        <img src="imagens/logosigest.gif">
       </div>
       <div class="menu">
-         <a href="/sigest/Instituição/inicio.html">Inicio</a>
-        <a href="/sigest/Instituição/propostasDeVagas.html">Propostas de Vagas</a>
-        <a href="/sigest/Instituição/Validarestagio.html">Validar Estágio</a>
-        <a href="/sigest/Instituição/desempenhoalunos.html">Desempenhos</a>
+         <a href="Instituição/inicio.html">Inicio</a>
+        <a href="Instituição/propostasDeVagas.html">Propostas de Vagas</a>
+        <a href="Instituição/Validarestagio.html">Validar Estágio</a>
+        <a href="Instituição/desempenhoalunos.html">Desempenhos</a>
            </a>
       </div>
     </nav>
@@ -42,7 +42,7 @@
 
 <script>
 // Buscar relatórios daquela instituição
-fetch("/sigest/php/listarRelatoriosInstituicao.php")
+fetch("php/listarRelatoriosInstituicao.php")
     .then(res => res.json())
     .then(lista => {
         const tabela = document.getElementById("tabela-relatorios");
@@ -61,7 +61,7 @@ fetch("/sigest/php/listarRelatoriosInstituicao.php")
                 <td>Relatório ${r.tipo}</td>
                 <td>${r.dataEnvio}</td>
                 <td>${r.status}</td>
-                <td><a href="/sigest/uploads/${r.caminhoArquivo}" target="_blank">Abrir</a></td>
+                <td><a href="uploads/${r.caminhoArquivo}" target="_blank">Abrir</a></td>
 
                 <td>
                     <button onclick="atualizarStatus(${r.idRelatorio}, 'APROVADO')">Aprovar</button>
@@ -75,7 +75,7 @@ fetch("/sigest/php/listarRelatoriosInstituicao.php")
 
 // Função para aprovar ou reprovar
 function atualizarStatus(id, novoStatus) {
-    fetch("/sigest/php/atualizarStatusRelatorio.php", {
+    fetch("php/atualizarStatusRelatorio.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idRelatorio: id, status: novoStatus })

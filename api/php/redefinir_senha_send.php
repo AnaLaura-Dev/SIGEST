@@ -40,7 +40,7 @@ if ($email) {
         $stmt->execute();
 
         // LINK
-        $link = "http://".$_SERVER['HTTP_HOST']."/sigest//php/redefinir_senha.php?token=".$token;
+        $link = "http://".$_SERVER['HTTP_HOST']."/php/redefinir_senha.php?token=".$token;
     }
 }
 ?>

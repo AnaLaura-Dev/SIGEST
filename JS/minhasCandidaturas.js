@@ -1,4 +1,4 @@
-fetch('/sigest/php/listarCandidaturasAlunos.php')
+fetch('php/listarCandidaturasAlunos.php')
   .then(response => response.json())
   .then(candidaturas => {
     const container = document.getElementById('lista-candidaturas');

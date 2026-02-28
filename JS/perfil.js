@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   btnSalvar.style.display = "none"; // só aparece depois de clicar em Editar
 
   // carregar dados do perfil 
-  fetch("/sigest/php/carregarPerfil.php")
+  fetch("php/carregarPerfil.php")
     .then((res) => res.json())
     .then((dados) => {
       if (dados.erro) {
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const formData = new FormData(form);
 
-    const resposta = await fetch("/sigest/php/salvarperfil.php", {
+    const resposta = await fetch("php/salvarperfil.php", {
       method: "POST",
       body: formData,
     });

@@ -81,7 +81,7 @@ $stmt->bind_param(
 if ($stmt->execute()) {
    echo "<script>
         alert('Relatório enviado com sucesso!');
-        window.location.href = '/sigest/AreaDoAluno/relatorios.html';
+        window.location.href = 'AreaDoAluno/relatorios.html';
       </script>";
 } else {
     echo "Erro ao enviar relatório: " . $stmt->error;

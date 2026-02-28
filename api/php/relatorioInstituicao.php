@@ -17,7 +17,7 @@
 
 <script>
 // buscar relatórios daquela instituição
-fetch("/sigest/php/listarRelatoriosInstituicao.php")
+fetch("php/listarRelatoriosInstituicao.php")
     .then(res => res.json())
     .then(lista => {
         const tabela = document.getElementById("tabela-relatorios");
@@ -36,7 +36,7 @@ fetch("/sigest/php/listarRelatoriosInstituicao.php")
                 <td>Relatório ${r.tipo}</td>
                 <td>${r.dataEnvio}</td>
                 <td>${r.status}</td>
-                <td><a href="/sigest/uploads/${r.caminhoArquivo}" target="_blank">Abrir</a></td>
+                <td><a href="uploads/${r.caminhoArquivo}" target="_blank">Abrir</a></td>
                 <td>
                     <button onclick="atualizarStatus(${r.idRelatorio}, 'APROVADO')">Aprovar</button>
                     <button onclick="atualizarStatus(${r.idRelatorio}, 'REPROVADO')">Reprovar</button>
@@ -49,7 +49,7 @@ fetch("/sigest/php/listarRelatoriosInstituicao.php")
 
 // Função para aprovar ou reprovar
 function atualizarStatus(id, novoStatus) {
-    fetch("/sigest/php/atualizarStatusRelatorio.php", {
+    fetch("php/atualizarStatusRelatorio.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idRelatorio: id, status: novoStatus })

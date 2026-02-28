@@ -15,18 +15,18 @@ $dados = $result->fetch_assoc();
 <head>
   <meta charset="UTF-8">
   <title>Detalhes da Vaga</title>
-  <link rel="stylesheet" href="/sigest/css/detalharvaga.css">
+  <link rel="stylesheet" href="css/detalharvaga.css">
 </head>
 <body>
       <header>
     <nav>
       <div class="logo">
-        <img src="/sigest/imagens/logosigest.gif">
+        <img src="imagens/logosigest.gif">
       </div>
       <div class="menu">
-        <a href="/sigest/Instituição/inicio.html">Inicio</a>
-        <a href="/sigest/Instituição/propostasDeVagas.html">Validar Estágio</a>
-        <a href="/sigest/Instituição/adicionardesempenho.html">Desempenhos</a>
+        <a href="Instituição/inicio.html">Inicio</a>
+        <a href="Instituição/propostasDeVagas.html">Validar Estágio</a>
+        <a href="Instituição/adicionardesempenho.html">Desempenhos</a>
         </a>
       </div>
     </nav>

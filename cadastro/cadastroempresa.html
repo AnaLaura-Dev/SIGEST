@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SIGEST- Cadastro</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="/sigest/JS/senha.js"></script>
-<link rel="stylesheet" href="/sigest/css/senha.css">
-  <link rel="stylesheet" href="/sigest/css/cadastroempresa.css">
+<script src="JS/senha.js"></script>
+<link rel="stylesheet" href="css/senha.css">
+  <link rel="stylesheet" href="css/cadastroempresa.css">
 </head>
 
 <body>
@@ -16,18 +16,18 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="/sigest/imagens/logosigest.gif">
+        <img src="imagens/logosigest.gif">
       </div>
       <div class="menu">
-        <a href="/sigest/Inicio/index.html">Início</a>
-        <a href="/sigest/Sobre nós/sobrenos.html">Sobre nós</a>
+        <a href="Inicio/index.html">Início</a>
+        <a href="Sobre nós/sobrenos.html">Sobre nós</a>
         <a href="#">Suporte</a>
-        <a href="/sigest/entrar como/entrar.html">Login</a>
+        <a href="entrar como/entrar.html">Login</a>
       </div>
     </nav>
   </header>
   <div class="login-box">
-    <form action = "/sigest/php/cadastroempresa.php" method="POST">
+    <form action = "php/cadastroempresa.php" method="POST">
     <h2><b>Cadastre-se</b></h2>
     <p style="margin-left: -240px; color: rgb(23, 112, 56);"><b>Dados obrigatórios</b></p>
     <label for="nome" style="color: #333; margin-left: -70px; font-size: 15px; "><b>Nome da empresa</b></label><input type="text" id="nome" name="nome" placeholder="Digite o nome da empresa" required autofocus>
@@ -46,7 +46,7 @@
       <label for="celu" style = "color: #333; margin-left: -70px; font-size: 15px;"><b>Celular</b></label><input type="tel" id="celularepre" name="celularepre" placeholder="Ex: XXXXXXX-XXXX" required autofocus>
     <button type = "submit" style="width: 250px; height: 40px; margin-left: -30;">Entrar</button>
     <p>Esqueceu a senha?</p>
-    <p>Já possui conta? <a href = "/sigest/login/loginempresa.html"><span class="verde">Acessar</span></p></a>
+    <p>Já possui conta? <a href = "login/loginempresa.html"><span class="verde">Acessar</span></p></a>
     </form>
   </div>
 </body>

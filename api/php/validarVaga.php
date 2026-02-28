@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     if ($acao === 'aprovar') {
-        echo "<script>alert('Vaga aprovada! Agora os alunos poderão vê-la.'); window.location.href='/sigest/instituicao/vagaspendentes.php';</script>";
+        echo "<script>alert('Vaga aprovada! Agora os alunos poderão vê-la.'); window.location.href='instituicao/vagaspendentes.php';</script>";
     } else {
-        echo "<script>alert('Vaga recusada. A empresa será notificada.'); window.location.href='/sigest/instituicao/vagaspendentes.php';</script>";
+        echo "<script>alert('Vaga recusada. A empresa será notificada.'); window.location.href='instituicao/vagaspendentes.php';</script>";
     }
 }
 ?>

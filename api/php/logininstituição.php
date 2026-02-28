@@ -3,7 +3,7 @@ session_start();
 require_once "conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo "<script>alert('Acesso inválido!'); window.location.href = '/sigest/login/logininstituicao.html';</script>";
+    echo "<script>alert('Acesso inválido!'); window.location.href = 'login/logininstituicao.html';</script>";
     exit;
 }
 
@@ -34,7 +34,7 @@ if ($result->num_rows === 1) {
 
         echo "<script>
                 alert('Login realizado com sucesso!');
-                window.location.href = '/sigest/Instituição/inicio.html';
+                window.location.href = 'Instituição/inicio.html';
               </script>";
         exit;
     } else {

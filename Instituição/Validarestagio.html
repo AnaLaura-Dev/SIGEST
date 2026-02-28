@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de Gerenciamento de Estágios- Area da Instituição</title>
-  <link rel="stylesheet" href="/sigest/css/validarestagio.css">
+  <link rel="stylesheet" href="css/validarestagio.css">
 
 </head>
 
@@ -14,13 +14,13 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="/sigest/imagens/logosigest.gif">
+        <img src="imagens/logosigest.gif">
       </div>
       <div class="menu">
-        <a href="/sigest/Instituição/inicio.html">Inicio</a>
-        <a href="/sigest/Instituição/desempenhoalunos.html">Desempenho</a>
-        <a href="/sigest/Instituição/propostasDeVagas.html">Proposta de vaga</a>
-        <a href="/sigest/Instituição/relatorioAlunos.html">Relatórios</a>
+        <a href="Instituição/inicio.html">Inicio</a>
+        <a href="Instituição/desempenhoalunos.html">Desempenho</a>
+        <a href="Instituição/propostasDeVagas.html">Proposta de vaga</a>
+        <a href="Instituição/relatorioAlunos.html">Relatórios</a>
       </div>
     </nav>
   </header>
@@ -50,7 +50,7 @@
 
         const tabela = document.querySelector("#tabelaDocs");
 
-        fetch("/sigest/php/listarDocumentosInstituicao.php")
+        fetch("php/listarDocumentosInstituicao.php")
           .then(response => response.json())
           .then(documentos => {
 
@@ -76,7 +76,7 @@
                     <td>${doc.matriculaAluno ?? "Sem matrícula"}</td>
                     <td>${doc.tipoDoc}</td>
                     <td>
-                        <a href="/sigest/${doc.arquivo}" target="_blank">
+                        <a href="${doc.arquivo}" target="_blank">
                             Abrir arquivo
                         </a>
                     </td>
@@ -111,7 +111,7 @@ function recusar(idDocumento) {
 }
 
 function atualizarStatus(idDocumento, status) {
-    fetch("/sigest/php/atualizarStatusDocumento.php", {
+    fetch("php/atualizarStatusDocumento.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idDocumento, status })

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Estagiários | SIGEST</title>
-    <link rel="stylesheet" href="/sigest/css/estagiarios.css">
+    <link rel="stylesheet" href="css/estagiarios.css">
 </head>
 
 <body>
@@ -13,13 +13,13 @@
 <header>
     <nav>
         <div class="logo">
-            <img src="/sigest/imagens/logosigest.gif">
+            <img src="imagens/logosigest.gif">
         </div>
         <div class="menu">
-            <a href="/sigest/Empresa/inicio.html">Início</a>
-            <a href="/sigest/Empresa/cadastrarvaga.html">Cadastrar Vagas</a>
-            <a href="/sigest/Empresa/Estagiarios.html">Estagiários</a>
-            <a href="/sigest/Empresa/candidaturas.html">Candidaturas</a>
+            <a href="Empresa/inicio.html">Início</a>
+            <a href="Empresa/cadastrarvaga.html">Cadastrar Vagas</a>
+            <a href="Empresa/Estagiarios.html">Estagiários</a>
+            <a href="Empresa/candidaturas.html">Candidaturas</a>
         </div>
     </nav>
 </header>
@@ -43,7 +43,7 @@
 <script>
 
 function carregarEstagiarios() {
-    fetch("/sigest/php/listarEstagiariosEmpresa.php", {
+    fetch("php/listarEstagiariosEmpresa.php", {
         method: "GET",
         credentials: "include"
     })
@@ -94,7 +94,7 @@ function carregarEstagiarios() {
     console.log("idEmpresa:", est.idEmpresa);
     console.log("nomeAluno (corrigido):", est.nome || est.nomeAluno);
 
-    window.location.href = "/sigest/Empresa/adicionardesempenho.html";
+    window.location.href = "Empresa/adicionardesempenho.html";
 });
             tabela.appendChild(tr);
         });

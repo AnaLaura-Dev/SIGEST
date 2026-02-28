@@ -15,7 +15,7 @@ if ($result->num_rows > 0) { //consulta retorno no banco
     while ($row = $result->fetch_assoc()) { //percorre cada instrução retornadda pro banco
         echo "<li>
                 <strong>{$row['titulo']}</strong> - {$row['nomeEmpresa']} 
-                <a href='/sigest/php/detalharVaga.php?id={$row['idVaga']}'>Ver detalhes</a>
+                <a href='php/detalharVaga.php?id={$row['idVaga']}'>Ver detalhes</a>
               </li>"; 
     }
     echo "</ul>";

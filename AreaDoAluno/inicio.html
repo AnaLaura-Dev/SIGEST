@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de Gerenciamento de Estágios- Area do aluno</title>
-  <link rel="stylesheet" href="/sigest//css/inicioAreaDoAluno.css">
-  <script src="/sigest//JS/carrossel.js" defer></script>
+  <link rel="stylesheet" href="/css/inicioAreaDoAluno.css">
+  <script src="/JS/carrossel.js" defer></script>
 
 </head>
 
@@ -15,16 +15,16 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="/sigest//imagens/logosigest.gif">
+        <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-               <a href="/sigest/documentos/Manual do usuário -SIGEST.pdf">Suporte</a>
-        <a href="/sigest/AreaDoAluno/vagas.html">Vagas</a>
-        <a href="/sigest/AreaDoAluno/candidaturas.html">Cadidaturas</a>
-        <a href="/sigest/AreaDoAluno/relatorios.html">Relatórios</a>
-        <a href="/sigest/AreaDoAluno/meudesempenho.html">Meu desempenho</a>
-        <a href="/sigest/AreaDoAluno/perfil.html">Perfil</a>
-        <a href="/sigest/AreaDoAluno/documentos.html">Documentos</a>
+               <a href="documentos/Manual do usuário -SIGEST.pdf">Suporte</a>
+        <a href="AreaDoAluno/vagas.html">Vagas</a>
+        <a href="AreaDoAluno/candidaturas.html">Cadidaturas</a>
+        <a href="AreaDoAluno/relatorios.html">Relatórios</a>
+        <a href="AreaDoAluno/meudesempenho.html">Meu desempenho</a>
+        <a href="AreaDoAluno/perfil.html">Perfil</a>
+        <a href="AreaDoAluno/documentos.html">Documentos</a>
         </a>
       </div>
     </nav>
@@ -39,19 +39,19 @@
       <input type="radio" name="btn-radio" id="radio4">
 
       <div class="slide-box primeiro">
-        <img src="/sigest/imagens/carroselsobrenois.png">
+        <img src="imagens/carroselsobrenois.png">
       </div>
 
       <div class="slide-box ">
-        <img src="/sigest/imagens/img2carrossel.png">
+        <img src="imagens/img2carrossel.png">
       </div>
 
       <div class="slide-box ">
-        <img src="/sigest/imagens/carrosselsubstituiçao.png">
+        <img src="imagens/carrosselsubstituiçao.png">
       </div>
 
       <div class="slide-box ">
-        <img src="/sigest/imagens/carrossel04.png">
+        <img src="imagens/carrossel04.png">
       </div>
 
       <div class="nav-auto">
@@ -81,7 +81,7 @@
   <div id="vagas-recentes" class="vagas-recentes"></div>
 </section>
 <script>
-fetch("/sigest/php/listarVagasRecentes.php")
+fetch("php/listarVagasRecentes.php")
   .then(res => res.json())
   .then(vagas => {
     const container = document.getElementById("vagas-recentes");
@@ -103,7 +103,7 @@ fetch("/sigest/php/listarVagasRecentes.php")
         <p><strong>Turno:</strong> ${vaga.turno}</p>
         <p>${vaga.descricao}</p>
 
-        <form action="/sigest/php/candidatarVaga.php" method="POST">
+        <form action="php/candidatarVaga.php" method="POST">
           <input type="hidden" name="idVaga" value="${vaga.idVaga}">
           <button type="submit">Candidatar-se</button>
         </form>
