@@ -1,16 +1,22 @@
 <?php
-// Conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "sigest";
+$host = getenv('DB_HOST');
+$port = getenv('DB_PORT');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASSWORD');
+$dbname = getenv('DB_NAME');
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
+try {
+    // IMPORTANTE: O TiDB exige SSL para funcionar na Vercel
+    $pdo = new PDO(
+        "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
+        $user,
+        $pass,
+        [PDO::MYSQL_ATTR_SSL_CA => true] 
+    );
+    // Se chegar aqui, conectou!
+} catch (PDOException $e) {
+    die("Erro ao conectar: " . $e->getMessage());
 }
-
 // Pegar os dados do formulário
 $nome = $_POST['nome'] ;
 $CNPJ = $_POST['CNPJ'] ;
