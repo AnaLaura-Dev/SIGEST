@@ -195,12 +195,12 @@ button {
 <header>
      <nav>
       <div class="logo">
-        <img src="imagens/logosigest.gif">
+        <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-         <a href="Empresa/inicio.html">Início</a>
-        <a href="Empresa/adicionardesempenho.html">Desempenho</a>
-        <a href="Empresa/feedbackempresa.html">Vagas Aprovadas</a>
+         <a href="/Empresa/inicio.html">Início</a>
+        <a href="/Empresa/adicionardesempenho.html">Desempenho</a>
+        <a href="/Empresa/feedbackempresa.html">Vagas Aprovadas</a>
       </div>
     </nav>
 </header>

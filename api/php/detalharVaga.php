@@ -15,13 +15,13 @@ $dados = $result->fetch_assoc();
 <head>
   <meta charset="UTF-8">
   <title>Detalhes da Vaga</title>
-  <link rel="stylesheet" href="css/detalharvaga.css">
+  <link rel="stylesheet" href="/css/detalharvaga.css">
 </head>
 <body>
       <header>
     <nav>
       <div class="logo">
-        <img src="imagens/logosigest.gif">
+        <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
         <a href="Instituição/inicio.html">Inicio</a>

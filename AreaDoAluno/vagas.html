@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Vagas Disponíveis</title>
-  <link rel="stylesheet" href="css/vagas.css">
+  <link rel="stylesheet" href="/css/vagas.css">
 </head>
 <body>
   <header>
@@ -12,12 +12,12 @@
         <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-       <a href="AreaDoAluno/inicio.html">Início</a>
-        <a href="AreaDoAluno/candidaturas.html">Cadidaturas</a>
-        <a href="AreaDoAluno/relatorios.html">Relatórios</a>
-        <a href="AreaDoAluno/meudesempenho.html">Meu desempenho</a>
-        <a href="AreaDoAluno/perfil.html">Perfil</a>
-        <a href="AreaDoAluno/documentos.html">Documentos</a>
+       <a href="/AreaDoAluno/inicio.html">Início</a>
+        <a href="/AreaDoAluno/candidaturas.html">Cadidaturas</a>
+        <a href="/AreaDoAluno/relatorios.html">Relatórios</a>
+        <a href="/AreaDoAluno/meudesempenho.html">Meu desempenho</a>
+        <a href="/AreaDoAluno/perfil.html">Perfil</a>
+        <a href="/AreaDoAluno/documentos.html">Documentos</a>
         </a>
       </div>
     </nav>
@@ -63,7 +63,7 @@ fetch("php/listarVagasAprovadas.php")
         <p><strong>Curso:</strong> ${vaga.curso}</p>
         <p><strong>Turno:</strong> ${vaga.turno}</p>
         <p>${vaga.descricao}</p>
-        <form action="php/candidatarVaga.php" method="POST">
+        <form action="/php/candidatarVaga.php" method="POST">
           <input type="hidden" name="idVaga" value="${vaga.idVaga}">
           <button type="submit">Candidatar-se</button>
         </form>
@@ -102,7 +102,7 @@ filtro.addEventListener('change', () => {
           <p><strong>Curso:</strong> ${vaga.curso}</p>
           <p><strong>Turno:</strong> ${vaga.turno}</p>
           <p>${vaga.descricao}</p>
-          <form action="php/candidatarVaga.php" method="POST">
+          <form action="/php/candidatarVaga.php" method="POST">
             <input type="hidden" name="idVaga" value="${vaga.idVaga}">
             <button type="submit">Candidatar-se</button>
           </form>

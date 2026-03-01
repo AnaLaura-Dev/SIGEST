@@ -18,13 +18,13 @@
         <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-               <a href="documentos/Manual do usuário -SIGEST.pdf">Suporte</a>
-        <a href="AreaDoAluno/vagas.html">Vagas</a>
-        <a href="AreaDoAluno/candidaturas.html">Cadidaturas</a>
-        <a href="AreaDoAluno/relatorios.html">Relatórios</a>
-        <a href="AreaDoAluno/meudesempenho.html">Meu desempenho</a>
-        <a href="AreaDoAluno/perfil.html">Perfil</a>
-        <a href="AreaDoAluno/documentos.html">Documentos</a>
+               <a href="/documentos/Manual do usuário -SIGEST.pdf">Suporte</a>
+        <a href="/AreaDoAluno/vagas.html">Vagas</a>
+        <a href="/AreaDoAluno/candidaturas.html">Cadidaturas</a>
+        <a href="/AreaDoAluno/relatorios.html">Relatórios</a>
+        <a href="/AreaDoAluno/meudesempenho.html">Meu desempenho</a>
+        <a href="/AreaDoAluno/perfil.html">Perfil</a>
+        <a href="/AreaDoAluno/documentos.html">Documentos</a>
         </a>
       </div>
     </nav>
@@ -39,19 +39,19 @@
       <input type="radio" name="btn-radio" id="radio4">
 
       <div class="slide-box primeiro">
-        <img src="imagens/carroselsobrenois.png">
+        <img src="/imagens/carroselsobrenois.png">
       </div>
 
       <div class="slide-box ">
-        <img src="imagens/img2carrossel.png">
+        <img src="/imagens/img2carrossel.png">
       </div>
 
       <div class="slide-box ">
-        <img src="imagens/carrosselsubstituiçao.png">
+        <img src="/imagens/carrosselsubstituiçao.png">
       </div>
 
       <div class="slide-box ">
-        <img src="imagens/carrossel04.png">
+        <img src="/imagens/carrossel04.png">
       </div>
 
       <div class="nav-auto">
@@ -103,7 +103,7 @@ fetch("php/listarVagasRecentes.php")
         <p><strong>Turno:</strong> ${vaga.turno}</p>
         <p>${vaga.descricao}</p>
 
-        <form action="php/candidatarVaga.php" method="POST">
+        <form action="/php/candidatarVaga.php" method="POST">
           <input type="hidden" name="idVaga" value="${vaga.idVaga}">
           <button type="submit">Candidatar-se</button>
         </form>

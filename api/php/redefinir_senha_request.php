@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de Gerenciamento de Estágios</title>
-<link rel="stylesheet" href="css/esqueceuasenha.css">
+<link rel="stylesheet" href="/css/esqueceuasenha.css">
 
 </head>
 
@@ -13,12 +13,12 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="imagens/logosigest.gif">
+        <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-        <a href="documentos/Manual do usuário -SIGEST.pdf">Suporte</a>
-        <a href="entrar como/entrar.html">Entrar</a>
-        <a href="cadastro/cadastrarcomo.html">Cadastre-se</a>
+        <a href="/documentos/Manual do usuário -SIGEST.pdf">Suporte</a>
+        <a href="/entrar como/entrar.html">Entrar</a>
+        <a href="/cadastro/cadastrarcomo.html">Cadastre-se</a>
       </nav>
     </div>
   </header>
