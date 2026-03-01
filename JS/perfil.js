@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  btnSalvar.style.display = "none"; // só aparece depois de clicar em Editar
+  btnSalvar.style.display = "none"; // so aparece depois de clicar em Editar
 
   // carregar dados do perfil 
   fetch("php/carregarPerfil.php")
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const formData = new FormData(form);
 
-    const resposta = await fetch("php/salvarperfil.php", {
+    const resposta = await fetch("/php/salvarperfil.php", {
       method: "POST",
       body: formData,
     });

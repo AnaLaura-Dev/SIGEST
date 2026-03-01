@@ -49,7 +49,7 @@ fetch("php/listarRelatoriosInstituicao.php")
 
 // Função para aprovar ou reprovar
 function atualizarStatus(id, novoStatus) {
-    fetch("php/atualizarStatusRelatorio.php", {
+    fetch("/php/atualizarStatusRelatorio.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idRelatorio: id, status: novoStatus })

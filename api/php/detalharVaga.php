@@ -24,9 +24,9 @@ $dados = $result->fetch_assoc();
         <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-        <a href="Instituição/inicio.html">Inicio</a>
-        <a href="Instituição/propostasDeVagas.html">Validar Estágio</a>
-        <a href="Instituição/adicionardesempenho.html">Desempenhos</a>
+        <a href="/Instituição/inicio.html">Inicio</a>
+        <a href="/Instituição/propostasDeVagas.html">Validar Estágio</a>
+        <a href="/Instituição/adicionardesempenho.html">Desempenhos</a>
         </a>
       </div>
     </nav>

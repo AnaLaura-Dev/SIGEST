@@ -38,7 +38,7 @@ $stmt->bind_param("sssssssss", $nome, $CNPJ, $CEP, $logradouro, $email, $senha, 
 if ($stmt->execute()) {
     echo "<script>
         alert('Você foi cadastrado com sucesso! Bem-vindo ao SIGEST!');
-        window.location.href = 'Empresa/inicio.html';
+        window.location.href = '/Empresa/inicio.html';
     </script>";
 } else {
     echo "<script>

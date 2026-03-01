@@ -17,10 +17,10 @@
         <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-        <a href="Instituição/inicio.html">Inicio</a>
-        <a href="Instituição/desempenhoalunos.html">Desempenho</a>
-        <a href="Instituição/propostasDeVagas.html">Proposta de vaga</a>
-        <a href="Instituição/relatorioAlunos.html">Relatórios</a>
+        <a href="/Instituição/inicio.html">Inicio</a>
+        <a href="/Instituição/desempenhoalunos.html">Desempenho</a>
+        <a href="/Instituição/propostasDeVagas.html">Proposta de vaga</a>
+        <a href="/Instituição/relatorioAlunos.html">Relatórios</a>
       </div>
     </nav>
   </header>
@@ -50,7 +50,7 @@
 
         const tabela = document.querySelector("#tabelaDocs");
 
-        fetch("php/listarDocumentosInstituicao.php")
+        fetch("/php/listarDocumentosInstituicao.php")
           .then(response => response.json())
           .then(documentos => {
 
@@ -111,7 +111,7 @@ function recusar(idDocumento) {
 }
 
 function atualizarStatus(idDocumento, status) {
-    fetch("php/atualizarStatusDocumento.php", {
+    fetch("/php/atualizarStatusDocumento.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idDocumento, status })

@@ -15,10 +15,10 @@
         <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-         <a href="Instituição/inicio.html">Inicio</a>
-        <a href="Instituição/propostasDeVagas.html">Propostas de Vagas</a>
-        <a href="Instituição/Validarestagio.html">Validar Estágio</a>
-        <a href="Instituição/desempenhoalunos.html">Desempenhos</a>
+         <a href="/Instituição/inicio.html">Inicio</a>
+        <a href="/Instituição/propostasDeVagas.html">Propostas de Vagas</a>
+        <a href="/Instituição/Validarestagio.html">Validar Estágio</a>
+        <a href="/Instituição/desempenhoalunos.html">Desempenhos</a>
            </a>
       </div>
     </nav>
@@ -42,7 +42,7 @@
 
 <script>
 // Buscar relatórios daquela instituição
-fetch("php/listarRelatoriosInstituicao.php")
+fetch("/php/listarRelatoriosInstituicao.php")
     .then(res => res.json())
     .then(lista => {
         const tabela = document.getElementById("tabela-relatorios");
@@ -75,7 +75,7 @@ fetch("php/listarRelatoriosInstituicao.php")
 
 // Função para aprovar ou reprovar
 function atualizarStatus(id, novoStatus) {
-    fetch("php/atualizarStatusRelatorio.php", {
+    fetch("/php/atualizarStatusRelatorio.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idRelatorio: id, status: novoStatus })

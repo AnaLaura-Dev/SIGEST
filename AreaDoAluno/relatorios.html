@@ -109,7 +109,7 @@
 
 <script>
    
-    fetch("php/listarRelatorios.php")
+    fetch("/php/listarRelatorios.php")
         .then(res => res.json())
         .then(lista => {
             const tabela = document.getElementById("tabela-relatorios");

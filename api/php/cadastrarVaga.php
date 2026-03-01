@@ -55,7 +55,7 @@ $stmt->bind_param(
 if ($stmt->execute()) {
     echo "<script>
         alert('Vaga cadastrada e enviada para a instituição com sucesso!');
-        window.location.href = 'Empresa/cadastrarvaga.html';
+        window.location.href = '/Empresa/cadastrarvaga.html';
     </script>";
 } else {
     echo "Erro ao cadastrar vaga: " . $stmt->error;

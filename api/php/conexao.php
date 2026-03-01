@@ -13,7 +13,7 @@ try {
         $pass,
         [PDO::MYSQL_ATTR_SSL_CA => true] 
     );
-    // Se chegar aqui, conectou!
+    // conectou!
 } catch (PDOException $e) {
     die("Erro ao conectar: " . $e->getMessage());
 }

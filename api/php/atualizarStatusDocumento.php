@@ -19,7 +19,7 @@ if (!$idDocumento || !$novoStatus) {
     exit;
 }
 
-//se o documento pertence à instituição logada
+//se o documento pertence a instituição logada
 $sqlVerifica = "SELECT Instituicao_idInstituicao FROM Documento WHERE idDocumento = ?";
 $stmt = $conn->prepare($sqlVerifica);
 $stmt->bind_param("i", $idDocumento);

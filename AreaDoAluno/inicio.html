@@ -81,7 +81,7 @@
   <div id="vagas-recentes" class="vagas-recentes"></div>
 </section>
 <script>
-fetch("php/listarVagasRecentes.php")
+fetch("/php/listarVagasRecentes.php")
   .then(res => res.json())
   .then(vagas => {
     const container = document.getElementById("vagas-recentes");

@@ -129,10 +129,10 @@ h1 {
         <img src="/imagens/logosigest.gif">
       </div>
       <div class="menu">
-         <a href="Instituição/inicio.html">Inicio</a>
-        <a href="Instituição/propostasDeVagas.html">Propostas de Vagas</a>
-        <a href="Instituição/Validarestagio.html">Validar Estágio</a>
-        <a href="Instituição/relatorioAlunos.html">Relatórios</a>
+         <a href="/Instituição/inicio.html">Inicio</a>
+        <a href="/Instituição/propostasDeVagas.html">Propostas de Vagas</a>
+        <a href="/Instituição/Validarestagio.html">Validar Estágio</a>
+        <a href="/Instituição/relatorioAlunos.html">Relatórios</a>
         </a>
       </div>
     </nav>
@@ -160,7 +160,7 @@ h1 {
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-fetch(`php/verDesempenho.php?id=${id}`)
+fetch(`/php/verDesempenho.php?id=${id}`)
     .then(res => res.json())
     .then(data => {
 

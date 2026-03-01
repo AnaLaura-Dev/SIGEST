@@ -3,7 +3,7 @@ session_start();
 require_once "conexao.php";
 
 if (!isset($_SESSION['idAluno'])) {
-    echo "<script>alert('Faça login para se candidatar a uma vaga.'); window.location.href = 'login/loginaluno.html';</script>";
+    echo "<script>alert('Faça login para se candidatar a uma vaga.'); window.location.href = '/login/loginaluno.html';</script>";
     exit;
 }
 
@@ -33,7 +33,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $idAluno, $idVaga);
 
 if ($stmt->execute()) {
-    echo "<script>alert('Candidatura enviada com sucesso!'); window.location.href = 'AreaDoAluno/vagas.html';</script>";
+    echo "<script>alert('Candidatura enviada com sucesso!'); window.location.href = '/AreaDoAluno/vagas.html';</script>";
 } else {
     echo "Erro ao enviar candidatura: " . $stmt->error;
 }

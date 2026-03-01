@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
  font-family: Arial, sans-serif;
-    background-image: url('imagens/loginaluno.png'); background-size: cover 100px 100px  no-repeat;  background-attachment: scroll; 
+    background-image: url('/imagens/loginaluno.png'); background-size: cover 100px 100px  no-repeat;  background-attachment: scroll; 
   height: 100vh;
   display: flex;
   flex-direction: column;

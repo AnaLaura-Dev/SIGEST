@@ -43,7 +43,7 @@
 <script>
 
 function carregarEstagiarios() {
-    fetch("php/listarEstagiariosEmpresa.php", {
+    fetch("/php/listarEstagiariosEmpresa.php", {
         method: "GET",
         credentials: "include"
     })
@@ -94,7 +94,7 @@ function carregarEstagiarios() {
     console.log("idEmpresa:", est.idEmpresa);
     console.log("nomeAluno (corrigido):", est.nome || est.nomeAluno);
 
-    window.location.href = "Empresa/adicionardesempenho.html";
+    window.location.href = "/Empresa/adicionardesempenho.html";
 });
             tabela.appendChild(tr);
         });

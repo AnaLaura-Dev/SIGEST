@@ -31,7 +31,7 @@ function marcarEstrelas(div, nota) {
     });
 }
 
-// ----------- ENVIAR AVALIAÇÃO -----------------
+
 document.getElementById("btnEnviar").addEventListener("click", () => {
 
     if (!idAluno || !idEmpresa || !idInstituicao) {
@@ -59,7 +59,7 @@ document.getElementById("btnEnviar").addEventListener("click", () => {
         topicos
     };
 
-  fetch("php/salvardesempenho.php", {
+  fetch("/php/salvardesempenho.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(dados)
@@ -78,7 +78,7 @@ document.getElementById("btnEnviar").addEventListener("click", () => {
     })
     .then(resp => {
         alert(resp.mensagem || "Sucesso");
-        window.location.href = "Empresa/Estagiarios.html";
+        window.location.href = "/Empresa/Estagiarios.html";
     })
     .catch(err => console.log(err));
 

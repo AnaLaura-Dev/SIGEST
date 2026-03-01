@@ -90,7 +90,7 @@
     document.getElementById("formEnvio").addEventListener("submit", async (e) => {
       e.preventDefault();
       const formData = new FormData(e.target);
-      const resposta = await fetch("php/enviardocumentos.php", {
+      const resposta = await fetch("/php/enviardocumentos.php", {
         method: "POST",
         body: formData
       });
@@ -102,7 +102,7 @@
     
   // Carregar status dos documentos
   async function carregarStatus() {
-const resp = await fetch("php/listarDocumentosAlunos.php");
+const resp = await fetch("/php/listarDocumentosAlunos.php");
     const dados = await resp.json();
 
     const tabela = document.getElementById("tabelaStatus");

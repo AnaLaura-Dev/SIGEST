@@ -3,7 +3,7 @@ session_start();
 require_once "conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo "<script>alert('Acesso inválido!'); window.location.href = 'login/loginempresa.html';</script>";
+    echo "<script>alert('Acesso inválido!'); window.location.href = '/login/loginempresa.html';</script>";
     exit;
 }
 

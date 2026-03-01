@@ -3,7 +3,7 @@ session_start();
 require_once "conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo "<script>alert('Acesso inválido!'); window.location.href = 'login/loginaluno.html';</script>";
+    echo "<script>alert('Acesso inválido!'); window.location.href = '/login/loginaluno.html';</script>";
     exit;
 } //se n tiver login
 
@@ -33,7 +33,7 @@ if ($result->num_rows === 1) {
 
         echo "<script>
             alert('Login realizado com sucesso!');
-            window.location.href = 'AreaDoAluno/inicio.html';
+            window.location.href = '/AreaDoAluno/inicio.html';
         </script>";
         exit;
     } else {

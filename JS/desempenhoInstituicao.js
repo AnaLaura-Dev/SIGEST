@@ -1,6 +1,6 @@
 async function carregarDesempenhos() {
     try {
-        const resposta = await fetch("php/listarDesempenhoInstituicao.php");
+        const resposta = await fetch("/php/listarDesempenhoInstituicao.php");
         const dados = await resposta.json();
 
         if (dados.status !== "ok") {
@@ -33,7 +33,7 @@ async function carregarDesempenhos() {
 }
 
 function verDetalhes(id) {
-    window.location.href = "Instituição/verDesempenho.html?id=" + id;
+    window.location.href = "/Instituição/verDesempenho.html?id=" + id;
 }
 
 carregarDesempenhos();

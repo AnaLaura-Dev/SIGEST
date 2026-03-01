@@ -43,7 +43,7 @@
 
   <script>
 
-fetch("php/listarVagasAprovadas.php")
+fetch("/php/listarVagasAprovadas.php")
   .then(res => res.json())
   .then(vagas => {
     const container = document.getElementById("lista-vagas");
@@ -82,7 +82,7 @@ const filtro = document.getElementById('filtroCurso');
 filtro.addEventListener('change', () => {
   const cursoSelecionado = filtro.value;
 
-  fetch('php/filtrarVagas.php?curso=' + cursoSelecionado)
+  fetch('/php/filtrarVagas.php?curso=' + cursoSelecionado)
     .then(res => res.json())
     .then(vagas => {
       const container = document.getElementById("lista-vagas");

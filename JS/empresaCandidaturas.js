@@ -1,12 +1,12 @@
 
-document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina carregar(html)
+document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina carregar
   const container = document.getElementById('lista-candidaturas');
 
   //js com php
   async function carregar() {
     container.innerHTML = "<p>Carregando candidaturas...</p>";
     try {
-      const res = await fetch('php/listarCandidaturas.php'); // faz requisiçaõ
+      const res = await fetch('/php/listarCandidaturas.php'); // faz requisicao
       if (!res.ok) throw new Error("Falha ao buscar candidaturas");
       const dados = await res.json();
       renderLista(dados);
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
     }
   }
 
-  //layout das candidaturas
+  //candidaturas
   function renderLista(candidaturas) {
     container.innerHTML = "";
     if (!Array.isArray(candidaturas) || candidaturas.length === 0) { 
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
 
  card.querySelector('.btn-ver').addEventListener('click', (e) => {
   const idAluno = e.currentTarget.dataset.aluno;
-  window.location.href = `php/verPerfilAluno.php?idAluno=${idAluno}`;
+  window.location.href = `/php/verPerfilAluno.php?idAluno=${idAluno}`;
 });
 
     
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
   // ver perfil completo do alunno
   async function abrirPerfil(idAluno) {
     try {
-      const res = await fetch(`php/verPerfilAluno.php?idAluno=${encodeURIComponent(idAluno)}`);
+      const res = await fetch(`/php/verPerfilAluno.php?idAluno=${encodeURIComponent(idAluno)}`);
       if (!res.ok) throw new Error("Erro ao buscar perfil");
       const perfil = await res.json();
 
