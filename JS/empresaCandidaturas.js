@@ -1,12 +1,12 @@
 
-document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina carregar
+document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById('lista-candidaturas');
 
-  //js com php
+
   async function carregar() {
     container.innerHTML = "<p>Carregando candidaturas...</p>";
     try {
-      const res = await fetch('/php/listarCandidaturas.php'); // faz requisicao
+      const res = await fetch('/api/php/listarCandidaturas.php'); // faz requisicao
       if (!res.ok) throw new Error("Falha ao buscar candidaturas");
       const dados = await res.json();
       renderLista(dados);
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
   //candidaturas
   function renderLista(candidaturas) {
     container.innerHTML = "";
-    if (!Array.isArray(candidaturas) || candidaturas.length === 0) { 
+    if (!Array.isArray(candidaturas) || candidaturas.length === 0) {
       container.innerHTML = "<p>Você ainda não recebeu nenhuma candidatura.</p>";
       return;
     }
@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
         </div>
       `;
 
- card.querySelector('.btn-ver').addEventListener('click', (e) => {
-  const idAluno = e.currentTarget.dataset.aluno;
-  window.location.href = `/php/verPerfilAluno.php?idAluno=${idAluno}`;
-});
+      card.querySelector('.btn-ver').addEventListener('click', (e) => {
+        const idAluno = e.currentTarget.dataset.aluno;
+        window.location.href = `/api/php/verPerfilAluno.php?idAluno=${idAluno}`;
+      });
 
-    
+
 
       card.querySelector('.btn-aceitar').addEventListener('click', (e) => {
         const id = e.currentTarget.dataset.id;
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
   // ver perfil completo do alunno
   async function abrirPerfil(idAluno) {
     try {
-      const res = await fetch(`/php/verPerfilAluno.php?idAluno=${encodeURIComponent(idAluno)}`);
+      const res = await fetch(`/api/php/verPerfilAluno.php?idAluno=${encodeURIComponent(idAluno)}`);
       if (!res.ok) throw new Error("Erro ao buscar perfil");
       const perfil = await res.json();
 
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
       const form = new URLSearchParams();
       form.append('idCandidatura', idCandidatura);  // pega dados como formulario
 
-      const res = await fetch('php/aceitarCandidatura.php', {
+      const res = await fetch('/api/php/aceitarCandidatura.php', {
         method: 'POST',
         body: form
       });
@@ -136,14 +136,14 @@ document.addEventListener("DOMContentLoaded", () => { //so roda qaundo a pagina 
       const form = new URLSearchParams();
       form.append('idCandidatura', idCandidatura);
 
-      const res = await fetch('php/recusarCandidatura.php', {
+      const res = await fetch('/api/php/recusarCandidatura.php', {
         method: 'POST',
         body: form
       });
       const texto = await res.text();
       if (!res.ok) throw new Error(texto || 'Erro');
       alert(texto);
-      carregar(); // atualizar lista
+      carregar();
     } catch (err) {
       alert("Erro ao recusar candidatura.");
       console.error(err);

@@ -160,7 +160,7 @@ h1 {
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-fetch(`/php/verDesempenho.php?id=${id}`)
+fetch(`/api/php/verDesempenho.php?id=${id}`)
     .then(res => res.json())
     .then(data => {
 

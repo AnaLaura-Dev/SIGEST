@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnSalvar.style.display = "none"; // so aparece depois de clicar em Editar
 
-  // carregar dados do perfil 
-  fetch("php/carregarPerfil.php")
+
+  fetch("api/php/carregarPerfil.php")
     .then((res) => res.json())
     .then((dados) => {
       if (dados.erro) {
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const formData = new FormData(form);
 
-    const resposta = await fetch("/php/salvarperfil.php", {
+    const resposta = await fetch("/api/php/salvarperfil.php", {
       method: "POST",
       body: formData,
     });

@@ -10,7 +10,7 @@ const idEmpresa = sessionStorage.getItem("idEmpresaLogada");
 document.getElementById("nomeAluno").innerText =
     sessionStorage.getItem("nomeAlunoAvaliado") || "NÃO ENCONTRADO";
 
-// ----------- SISTEMA DE ESTRELAS -------------
+// avaliação ESTRELASSS
 document.querySelectorAll(".estrelas").forEach(div => {
     for (let i = 1; i <= 5; i++) {
         let star = document.createElement("span");
@@ -59,14 +59,14 @@ document.getElementById("btnEnviar").addEventListener("click", () => {
         topicos
     };
 
-  fetch("/php/salvardesempenho.php", {
+  fetch("/api/php/salvardesempenho.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(dados)
 })
     .then(async res => {
         const texto = await res.text();
-        console.log("Resposta bruta do PHP:", texto);
+        console.log("Resposta do PHP:", texto);
 
         try {
             return JSON.parse(texto);

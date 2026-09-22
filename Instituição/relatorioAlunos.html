@@ -42,7 +42,7 @@
 
 <script>
 // Buscar relatórios daquela instituição
-fetch("/php/listarRelatoriosInstituicao.php")
+fetch("/api/php/listarRelatoriosInstituicao.php")
     .then(res => res.json())
     .then(lista => {
         const tabela = document.getElementById("tabela-relatorios");
@@ -75,7 +75,7 @@ fetch("/php/listarRelatoriosInstituicao.php")
 
 // Função para aprovar ou reprovar
 function atualizarStatus(id, novoStatus) {
-    fetch("/php/atualizarStatusRelatorio.php", {
+    fetch("/api/php/atualizarStatusRelatorio.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idRelatorio: id, status: novoStatus })

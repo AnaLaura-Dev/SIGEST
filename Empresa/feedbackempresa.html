@@ -34,8 +34,8 @@
   </table>
 
   <script>
-    // Faz uma requisição para o PHP
-    fetch('/php/feedbackempresa.php')
+    // faz uma requisição para o PHP
+    fetch('/api/php/feedbackempresa.php')
       .then(response => response.json())
       .then(vagas => {
         const tbody = document.querySelector('#tabela-vagas tbody');

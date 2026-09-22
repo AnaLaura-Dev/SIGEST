@@ -43,7 +43,7 @@
 
   <script>
 
-fetch("/php/listarVagasAprovadas.php")
+fetch("/api/php/listarVagasAprovadas.php")
   .then(res => res.json())
   .then(vagas => {
     const container = document.getElementById("lista-vagas");

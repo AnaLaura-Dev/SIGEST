@@ -81,7 +81,7 @@
   <div id="vagas-recentes" class="vagas-recentes"></div>
 </section>
 <script>
-fetch("/php/listarVagasRecentes.php")
+fetch("/api/php/listarVagasRecentes.php")
   .then(res => res.json())
   .then(vagas => {
     const container = document.getElementById("vagas-recentes");
@@ -103,7 +103,7 @@ fetch("/php/listarVagasRecentes.php")
         <p><strong>Turno:</strong> ${vaga.turno}</p>
         <p>${vaga.descricao}</p>
 
-        <form action="/php/candidatarVaga.php" method="POST">
+        <form action="api/php/candidatarVaga.php" method="POST">
           <input type="hidden" name="idVaga" value="${vaga.idVaga}">
           <button type="submit">Candidatar-se</button>
         </form>

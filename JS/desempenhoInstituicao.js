@@ -1,6 +1,6 @@
 async function carregarDesempenhos() {
     try {
-        const resposta = await fetch("/php/listarDesempenhoInstituicao.php");
+        const resposta = await fetch("/api/php/listarDesempenhoInstituicao.php");
         const dados = await resposta.json();
 
         if (dados.status !== "ok") {

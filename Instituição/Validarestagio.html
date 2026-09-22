@@ -50,7 +50,7 @@
 
         const tabela = document.querySelector("#tabelaDocs");
 
-        fetch("/php/listarDocumentosInstituicao.php")
+        fetch("/api/php/listarDocumentosInstituicao.php")
           .then(response => response.json())
           .then(documentos => {
 
@@ -111,7 +111,7 @@ function recusar(idDocumento) {
 }
 
 function atualizarStatus(idDocumento, status) {
-    fetch("/php/atualizarStatusDocumento.php", {
+    fetch("/api/php/atualizarStatusDocumento.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idDocumento, status })
@@ -120,7 +120,7 @@ function atualizarStatus(idDocumento, status) {
     .then(result => {
         if (result.sucesso) {
             alert("Status atualizado com sucesso!");
-            carregarDocumentos(); // atualiza a tabela automaticamente
+            carregarDocumentos(); 
         } else {
             alert("Erro: " + result.erro);
         }

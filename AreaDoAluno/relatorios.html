@@ -45,7 +45,7 @@
 
 <h2>Enviar Relatório</h2>
 <section class="enviar-relatorios">
-<form action="/php/enviarRelatorio.php" method="POST" enctype="multipart/form-data" class="relatorios">
+<form action="api/php/enviarRelatorio.php" method="POST" enctype="multipart/form-data" class="relatorios">
 
     <label>Nome do Aluno:</label><br>
     <input type="text" name="nome" required><br><br>
@@ -109,7 +109,7 @@
 
 <script>
    
-    fetch("/php/listarRelatorios.php")
+    fetch("/api/php/listarRelatorios.php")
         .then(res => res.json())
         .then(lista => {
             const tabela = document.getElementById("tabela-relatorios");

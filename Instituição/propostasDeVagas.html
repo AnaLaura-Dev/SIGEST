@@ -27,7 +27,7 @@
   <div id="lista-vagas"></div>
   <script>
     // procura vagas via PHP api (garçom)
-    fetch('/php/listarVagasPendentes.php')
+    fetch('/api/php/listarVagasPendentes.php')
       .then(response => response.text())
       .then(data => {
         document.getElementById('lista-vagas').innerHTML = data;
