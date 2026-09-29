@@ -7,7 +7,7 @@ Disponível em: https://sigest.site.je/
 * Edita perfil
 * Anexa curriculo
 * Acompanha documentação de estágio
-* Anexa documentos de estágio e acessa infomrações para validar o estágio
+* Anexa documentos de estágio e acessa informações para validar o estágio
 * Visualiza desempenho
 ---
 ### Usuário Empresa
