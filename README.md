@@ -4,16 +4,16 @@ Disponível em: https://sigest.site.je/
 ---
 ### Usuário Aluno
 * Realiza candidatura e acompanha candidatura
-* Edita perfil
-* Anexa curriculo
-* Acompanha documentação de estágio
-* Anexa documentos de estágio e acessa informações para validar o estágio
-* Visualiza desempenho
+* Editar perfil
+* Anexar curriculo
+* Acompanhar documentação de estágio
+* Anexar documentos de estágio e acesso a informações para validar o estágio
+* Visualizar desempenho
 ---
 ### Usuário Empresa
 * Cadastra vagas
 * Visualiza candidaturas
-* Acessa perfil do aluno com infomrações do curriculo e curso
+* Acessa perfil do aluno com informações do curriculo e curso
 * Seleciona candidatos
 * Adiciona desempenho do aluno
 ---
